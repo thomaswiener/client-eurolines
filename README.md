@@ -1,7 +1,7 @@
 ## Eurolines Client
 ======
 
-Sample Code
+### Setup
 
 ```php
 $loader = require_once __DIR__ . "/./vendor/autoload.php";
@@ -23,6 +23,11 @@ $ticketService   = new \EurolinesClient\Endpoint\Ticket($client);
 
 session_start();
 
+```
+
+### Security|Login
+
+```php
 $user = new \EurolinesClient\Data\User();
 $user
     ->setUsername($config['username'])
@@ -42,7 +47,11 @@ $response = $securityService->isLoggedIn();
 if (!$response->getData()->IsLoggedInResult) {
     echo 'not logged in'; exit();
 }
+```
 
+### Journey|Get Stations
+
+```php
 //====================
 //get stations
 //====================
@@ -56,7 +65,11 @@ foreach ($response->getData()->busStopCollection->Stop as $stationService) {
         $busStopTo = $stationService;
     }
 }
+```
 
+### Journey|Search
+
+```php
 //====================
 //search journeys
 //====================
@@ -99,6 +112,11 @@ foreach ($leg as $fieldName => $value) {
     $journeyData->$method($value);
 }
 $response = $journeyService->getTariff($journeyData);
+```
+
+### Ticket|Purchase
+
+```php
 
 //===============
 //purchase ticket
@@ -165,15 +183,30 @@ $ticketData->setInvoiceNumber('');
 //call purchase
 $response = $ticketService->purchase($ticketData);
 $sale = $response->getData()->Sale;
+```
+
+### Ticket|Get Ticket Number
+
+```php
 //================
 //obtain ticket no
 //================
 $response = $ticketService->saveTicketNumber($sale->SaleId, $template, ''); //for every passenger and every leg
 $ticketNumber = $response->getData()->ticketNumber;
+```
+
+### Ticket|Get Sale
+
+```php
 //================
 //get sale
 //================
 $response = $ticketService->getSale($sale->SaleId);
+```
+
+### Ticket|Get Print Data
+
+```php
 //================
 //get print data
 //================
@@ -182,18 +215,22 @@ $response = $ticketService->getPrintData($sale->SaleId);
 //confirm print
 //================
 //$response = $ticketService->confirmPrint($sale->SaleId);
-//================
-//cancel tariffs
-//================
+```
+
+### Ticket|Cancel Tariffs
+
+```php
 $tariffs = [];
 foreach ($sale->Passengers as $passenger) {
     foreach ($passenger->Tickets as $ticket) {
         $tariffs[$ticket->TicketId] = $ticketService->cancelTariffs($ticket->TicketId);
     }
 }
-//================
-//cancel ticket
-//================
+```
+
+### Ticket|Cancel Ticket
+
+```php
 foreach ($tariffs as $ticketId => $tariffCollection) {
     $tariff = $tariffCollection->getData()->priceCollection->Price[1];
     $ticketData = new \EurolinesClient\Data\Ticket();
@@ -204,13 +241,15 @@ foreach ($tariffs as $ticketId => $tariffCollection) {
     $response = $ticketService->cancel($ticketData);
 }
 
-//======
-//logout
-//======
+### Security|Logout
+
+```php
 $response = $securityService->logout();
-//=============
-//is logged out
-//=============
+```
+
+### Security|Logged In Check
+
+```php
 $response = $securityService->isLoggedIn();
 if ($response->getData()->IsLoggedInResult) {
     echo 'error logging out'; exit();
