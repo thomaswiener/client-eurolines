@@ -15,13 +15,10 @@ Below you will find example calls for the different endpoints.
 
 Install via composer.
 
-Add
-
-"thomaswiener/client-eurolines": "dev-master"
-
-to your composer.json and update vendors.
+Add _"thomaswiener/client-eurolines": "dev-master"_ to your composer.json and update vendors.
 
 https://packagist.org/packages/thomaswiener/client-eurolines
+
 https://github.com/thomaswiener/client-eurolines
 
 
