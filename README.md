@@ -1,7 +1,20 @@
 ## Eurolines Client
 ======
 
+This package is a client implementation for the Eurolines (RO) Webservice (SOAP).
+It is based on the webservice description found here: http://rezervari.eurolines.ro/emlines_api/APIdoc.htm
+
+Endpoint descriptions can be found here: http://rezervari.eurolines.ro/emlines_api/api.asmx?
+
+Please read the following description before continuing:
+
+http://rezervari.eurolines.ro/emlines_api/APIdoc.htm#_Toc211526756
+
+
 ### Setup
+
+
+
 
 ```php
 $loader = require_once __DIR__ . "/./vendor/autoload.php";
