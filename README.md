@@ -17,9 +17,9 @@ Install via composer.
 
 Add _"thomaswiener/client-eurolines": "dev-master"_ to your composer.json and update vendors.
 
-https://packagist.org/packages/thomaswiener/client-eurolines
+Packagist: https://packagist.org/packages/thomaswiener/client-eurolines
 
-https://github.com/thomaswiener/client-eurolines
+Github: https://github.com/thomaswiener/client-eurolines
 
 
 ### Setup
