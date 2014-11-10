@@ -53,7 +53,7 @@ class Client extends \SoapClient implements ClientInterface
         );
 
         $this->options = $config;
-        $this->logPath = $basePath . DS .'metro.log';
+        $this->logPath = $basePath .'/metro.log';
         $this->logEntry = new LogEntry();
     }
 
