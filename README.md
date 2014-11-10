@@ -1,7 +1,6 @@
 ## Eurolines Client
-======
 
-This package is a client implementation for the Eurolines (RO) Webservice (SOAP).
+This package is a php client implementation for the Eurolines (RO) Webservice (SOAP).
 It is based on the webservice description found here: http://rezervari.eurolines.ro/emlines_api/APIdoc.htm
 
 Endpoint descriptions can be found here: http://rezervari.eurolines.ro/emlines_api/api.asmx?
@@ -10,10 +9,23 @@ Please read the following description before continuing:
 
 http://rezervari.eurolines.ro/emlines_api/APIdoc.htm#_Toc211526756
 
+Below you will find example calls for the different endpoints.
+
+### Installation
+
+Install via composer.
+
+Add
+
+"thomaswiener/client-eurolines": "dev-master"
+
+to your composer.json and update vendors.
+
+https://packagist.org/packages/thomaswiener/client-eurolines
+https://github.com/thomaswiener/client-eurolines
+
 
 ### Setup
-
-
 
 
 ```php
