@@ -183,7 +183,7 @@ class Ticket extends AbstractEndpoint implements TicketInterface
      * @param $ticketNumber
      * @return mixed
      */
-    public function saveTicketNumber($referenceNumber, $template, $ticketNumber)
+    public function saveTicketNumber($referenceNumber, $template, $ticketNumber = null)
     {
         $data = [self::METHOD_SAVE_TICKET_NO => [
             'referenceNumber' => $referenceNumber,

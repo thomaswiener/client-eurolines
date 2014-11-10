@@ -209,9 +209,12 @@ $sale = $response->getData()->Sale;
 #### Get Ticket Number
 
 ```php
-
-$response = $ticketService->saveTicketNumber($sale->SaleId, $template, ''); //for every passenger and every leg
-$ticketNumber = $response->getData()->ticketNumber;
+foreach ($sale->Passengers as $passenger) {
+    foreach ($passenger->Tickets as $ticket) {
+        $response = $ticketService->saveTicketNumber($ticket->TicketId, $template); //for every passenger and every leg
+        $ticketNumbers[] = $response->getData()->ticketNumber;
+    }
+}
 
 ```
 
@@ -239,10 +242,9 @@ $response = $ticketService->getPrintData($sale->SaleId);
 
 ```php
 $tariffs = [];
-foreach ($sale->Passengers as $passenger) {
-    foreach ($passenger->Tickets as $ticket) {
-        $tariffs[$ticket->TicketId] = $ticketService->cancelTariffs($ticket->TicketId);
-    }
+foreach ($ticketNumbers as $ticketNumber) {
+    $tariffs[$ticket->TicketId]['tariffs'] = $ticketService->cancelTariffs($ticket->TicketId);
+    $tariffs[$ticket->TicketId]['ticketNumber'] = $ticketNumber;
 }
 ```
 
@@ -250,12 +252,13 @@ foreach ($sale->Passengers as $passenger) {
 
 ```php
 foreach ($tariffs as $ticketId => $tariffCollection) {
-    $tariff = $tariffCollection->getData()->priceCollection->Price[1];
+    $tariff = $tariffCollection['tariffs']->getData()->priceCollection->Price[0];
     $ticketData = new \EurolinesClient\Data\Ticket();
-    $ticketData->setReferenceNumber($sale->SaleId);
-    $ticketData->setTicketNumber($ticketNumber);
+    $ticketData->setReferenceNumber($ticketId); #$sale->SaleId);
+    $ticketData->setTicketNumber($tariffCollection['ticketNumber']);
     $ticketData->setTariffId($tariff->TariffId);
     $ticketData->setCancelOnlyBackWay(false);
     $response = $ticketService->cancel($ticketData);
 }
+```
 
