@@ -40,7 +40,7 @@ interface ClientInterface
      * @param string $method API Method
      * @param array  $params Parameters
      *
-     * @return \Guzzle\Http\Message\Request
+     * @return \GuzzleHttp\Message\Request
      */
     public function setup($method, $params);
 

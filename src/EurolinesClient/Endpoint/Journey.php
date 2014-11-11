@@ -12,7 +12,7 @@
  */
 namespace EurolinesClient\Endpoint;
 
-use Guzzle\Http\ClientInterface;
+use GuzzleHttp\ClientInterface;
 use EurolinesClient\Data\Response;
 use EurolinesClient\Data\Interfaces\JourneySearchInterface as JourneySearchDataInterface;
 use EurolinesClient\Data\Interfaces\JourneyInterface as JourneyDataInterface;

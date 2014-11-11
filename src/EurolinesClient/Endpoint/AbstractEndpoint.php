@@ -13,7 +13,7 @@
 
 namespace EurolinesClient\Endpoint;
 
-use Guzzle\Http\Message\Response as GuzzleResponse;
+use GuzzleHttp\Message\Response as GuzzleResponse;
 use EurolinesClient\ClientInterface;
 use EurolinesClient\Data\Response;
 use stdClass;
@@ -30,7 +30,7 @@ use stdClass;
 abstract class AbstractEndpoint
 {
     /**
-     * @var \Guzzle\Http\ClientInterface Client
+     * @var \GuzzleHttp\ClientInterface Client
      */
     protected $client;
 
