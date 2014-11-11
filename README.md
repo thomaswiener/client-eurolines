@@ -1,6 +1,4 @@
-![alt tag](https://travis-ci.org/thomaswiener/client-eurolines.svg?branch=master)
-
-## Eurolines Client
+## Eurolines Client [![Build Status](https://travis-ci.org/thomaswiener/client-eurolines.svg?branch=master)](https://travis-ci.org/thomaswiener/client-eurolines)
 
 This package is a php client implementation for the Eurolines (RO) Webservice (SOAP).
 It is based on the webservice description found here: http://rezervari.eurolines.ro/emlines_api/APIdoc.htm
