@@ -1,3 +1,5 @@
+https://travis-ci.org/thomaswiener/client-eurolines.svg?branch=master
+
 ## Eurolines Client
 
 This package is a php client implementation for the Eurolines (RO) Webservice (SOAP).
