@@ -1,4 +1,4 @@
-https://travis-ci.org/thomaswiener/client-eurolines.svg?branch=master
+![alt tag](https://travis-ci.org/thomaswiener/client-eurolines.svg?branch=master)
 
 ## Eurolines Client
 
