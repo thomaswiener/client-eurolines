@@ -39,9 +39,8 @@ class Client extends \SoapClient implements ClientInterface
      * Constructor
      *
      * @param array $config   The config data
-     * @param array $basePath Base Path
      */
-    public function __construct(array $config, $basePath)
+    public function __construct(array $config)
     {
         parent::__construct(
             $config['wsdl'],
@@ -53,7 +52,6 @@ class Client extends \SoapClient implements ClientInterface
         );
 
         $this->options = $config;
-        $this->logPath = $basePath .'/metro.log';
         $this->logEntry = new LogEntry();
     }
 
@@ -192,14 +190,6 @@ class Client extends \SoapClient implements ClientInterface
     public function getCommunicationLog()
     {
         return $this->logEntry;
-    }
-
-    /**
-     * @param $data
-     */
-    public function log($data)
-    {
-        file_put_contents($this->logPath, $data. PHP_EOL, FILE_APPEND);
     }
 
     /**
