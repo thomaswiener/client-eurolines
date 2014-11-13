@@ -87,15 +87,13 @@ class Client extends \SoapClient implements ClientInterface
             $responseDateTime = new \DateTime();
 
             $resultObject = $this->getResultObject($result);
-
+$a = json_encode($resultObject);
             $this->setCommunicationLog(
                 $this->getLogString($method, $resultObject->requestBody),
                 $this->getLogString($method, $resultObject->responseBody),
                 $requestDateTime,
                 $responseDateTime
             );
-
-            $this->log($this->logEntry->getFormattedLogMessage());
 
             return $resultObject;
 
@@ -106,9 +104,8 @@ class Client extends \SoapClient implements ClientInterface
                 $requestDateTime,
                 new \DateTime()
             );
-            $this->log($this->logEntry->getFormattedLogMessage());
 
-            throw new Exception($e->getMessage());
+            throw new \Exception($e->getMessage());
         }
     }
 
