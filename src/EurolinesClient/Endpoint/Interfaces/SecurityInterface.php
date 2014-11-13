@@ -30,4 +30,4 @@ interface SecurityInterface
      * @return mixed
      */
     public function logout();
-} 
+}

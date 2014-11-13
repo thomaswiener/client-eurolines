@@ -57,4 +57,4 @@ interface ClientInterface
      * @return mixed
      */
     public function getCommunicationLog();
-} 
+}

@@ -348,7 +348,4 @@ class Ticket implements TicketInterface, TicketCancelInterface, TicketPdfInterfa
     {
         $this->templateName = $templateName;
     }
-
-
-
 }

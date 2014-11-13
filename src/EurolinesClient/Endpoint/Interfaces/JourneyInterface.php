@@ -5,7 +5,6 @@ namespace EurolinesClient\Endpoint\Interfaces;
 use EurolinesClient\Data\Interfaces\JourneySearchInterface as JourneySearchDataInterface;
 use EurolinesClient\Data\Interfaces\JourneyInterface as JourneyDataInterface;
 
-
 interface JourneyInterface
 {
     /**
@@ -43,4 +42,4 @@ interface JourneyInterface
      * @return Response
      */
     public function cancelTariff(JourneyDataInterface $journey);
-} 
+}

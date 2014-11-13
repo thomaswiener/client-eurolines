@@ -281,6 +281,4 @@ abstract class AbstractEndpoint
     {
         return sprintf('%sResult', $method);
     }
-
-
-} 
+}
