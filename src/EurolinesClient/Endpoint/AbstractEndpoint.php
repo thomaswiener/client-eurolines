@@ -240,8 +240,9 @@ abstract class AbstractEndpoint
     protected function getSessionIdFromResult($result)
     {
         $cookies = json_decode(json_encode($result->cookies));
+        $sessionName = $this->sessionName;
 
-        if (!$values = $cookies->$this->sessionName) {
+        if (!$values = $cookies->$sessionName) {
             return null;
         }
 
