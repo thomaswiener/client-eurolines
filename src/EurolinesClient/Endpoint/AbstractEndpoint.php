@@ -239,18 +239,12 @@ abstract class AbstractEndpoint
      */
     protected function getSessionIdFromResult($result)
     {
-        $cookies = $result->cookies;
-        $cookieName = 'ASP.NET_SessionId';
+        $cookies = json_decode(json_encode($result->cookies));
 
-        if (isset($cookies[$cookieName]) && isset($cookies[$cookieName][0])) {
-            return $cookies[$cookieName][0];
-        }
-
-        if (!isset($cookies->$cookieName)) {
+        if (!$values = $cookies->$this->sessionName) {
             return null;
         }
 
-        $values = $cookies->$cookieName;
         if (isset($values[0])) {
             return $values[0];
         }
