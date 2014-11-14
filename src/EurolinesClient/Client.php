@@ -33,8 +33,6 @@ class Client extends \SoapClient implements ClientInterface
 
     protected $logEntry;
 
-    protected $logPath;
-
     /**
      * Constructor
      *
@@ -211,6 +209,10 @@ $a = json_encode($resultObject);
      */
     public function getLastRequest()
     {
-        return $this->logEntry->getFormattedLogMessage();
+	if ($this->logEntry) {
+	    return $this->logEntry->getFormattedLogMessage();	
+	}        
+
+        return '';
     }
 }
