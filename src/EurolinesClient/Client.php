@@ -15,8 +15,7 @@ namespace EurolinesClient;
 
 use DOMDocument;
 use EurolinesClient\Data\LogEntry;
-use SoapHeader;
-use SoapVar;
+use Exception;
 
 /**
  * Class ClientJourney
@@ -85,7 +84,7 @@ class Client extends \SoapClient implements ClientInterface
             $responseDateTime = new \DateTime();
 
             $resultObject = $this->getResultObject($result);
-$a = json_encode($resultObject);
+
             $this->setCommunicationLog(
                 $this->getLogString($method, $resultObject->requestBody),
                 $this->getLogString($method, $resultObject->responseBody),
@@ -93,6 +92,7 @@ $a = json_encode($resultObject);
                 $responseDateTime
             );
 
+            #$a = json_encode($resultObject);
             return $resultObject;
 
         } catch (\Exception $e) {
@@ -209,9 +209,9 @@ $a = json_encode($resultObject);
      */
     public function getLastRequest()
     {
-	if ($this->logEntry) {
-	    return $this->logEntry->getFormattedLogMessage();	
-	}        
+        if ($this->logEntry) {
+            return $this->logEntry->getFormattedLogMessage();
+        }
 
         return '';
     }

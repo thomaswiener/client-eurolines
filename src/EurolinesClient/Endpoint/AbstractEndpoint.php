@@ -246,6 +246,15 @@ abstract class AbstractEndpoint
             return $cookies[$cookieName][0];
         }
 
+        if (!isset($cookies->$cookieName)) {
+            return null;
+        }
+
+        $values = $cookies->$cookieName;
+        if (isset($values[0])) {
+            return $values[0];
+        }
+
         return null;
     }
 
