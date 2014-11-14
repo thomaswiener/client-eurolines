@@ -109,7 +109,7 @@ $a = json_encode($resultObject);
         }
     }
 
-    protected function setHeaders($headers)
+    public function setHeaders($headers)
     {
         if (isset($headers['cookies'])) {
             foreach ($headers['cookies'] as $name => $value) {

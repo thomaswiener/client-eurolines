@@ -39,6 +39,8 @@ abstract class AbstractEndpoint
      */
     protected $sessionName = 'ASP.NET_SessionId';
 
+    protected $headers;
+
     protected $successCodes = array(
         'e0000_NoError',
         'e0009_TripSold'
@@ -269,13 +271,15 @@ abstract class AbstractEndpoint
 
     public function getHeaders()
     {
-        $headers = [];
-        if (isset($_SESSION[$this->sessionName])) {
-            $headers  = ['cookies' => [$this->sessionName => $_SESSION[$this->sessionName]]];
-        }
-
-        return $headers;
+        return $this->headers;
     }
+
+    public function addHeader($key, $value)
+    {
+        $this->headers['cookies'][$key] = $value;
+
+        return $this;
+     }
 
     protected function getResponseFieldName($method)
     {
