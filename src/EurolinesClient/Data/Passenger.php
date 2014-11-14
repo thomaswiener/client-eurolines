@@ -304,6 +304,4 @@ class Passenger implements BaseInterface
     {
         $this->street = $street;
     }
-
-
 }

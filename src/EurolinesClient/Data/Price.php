@@ -161,6 +161,4 @@ class Price implements BaseInterface
     {
         $this->Tax = $Tax;
     }
-
-
 }

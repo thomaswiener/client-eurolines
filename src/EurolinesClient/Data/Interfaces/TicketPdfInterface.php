@@ -10,4 +10,4 @@ interface TicketPdfInterface extends BaseInterface
      * @return mixed
      */
     public function getTicketPdfAsArray();
-} 
+}

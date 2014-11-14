@@ -253,6 +253,4 @@ class JourneySearch implements JourneySearchInterface
 
         return $this;
     }
-
-
 }

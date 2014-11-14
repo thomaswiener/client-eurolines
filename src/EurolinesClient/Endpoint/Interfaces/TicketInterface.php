@@ -6,7 +6,6 @@ use EurolinesClient\Data\Interfaces\TicketInterface as TicketDataInterface;
 use EurolinesClient\Data\Interfaces\TicketCancelInterface as TicketCancelDataInterface;
 use EurolinesClient\Data\Interfaces\TicketPdfInterface as TicketPdfDataInterface;
 
-
 interface TicketInterface
 {
     /**

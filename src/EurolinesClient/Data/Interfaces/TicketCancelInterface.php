@@ -10,4 +10,4 @@ interface TicketCancelInterface extends BaseInterface
      * @return mixed
      */
     public function getTicketCancelAsArray();
-} 
+}

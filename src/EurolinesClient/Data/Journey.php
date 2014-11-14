@@ -593,7 +593,4 @@ class Journey implements JourneyInterface
     {
         $this->ticketType = $ticketType;
     }
-
-
-
 }

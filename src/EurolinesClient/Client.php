@@ -204,4 +204,13 @@ $a = json_encode($resultObject);
         );
     }
 
+    /**
+     * Get last request
+     *
+     * @return mixed
+     */
+    public function getLastRequest()
+    {
+        return $this->logEntry->getFormattedLogMessage();
+    }
 }
